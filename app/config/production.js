@@ -1,4 +1,4 @@
 var port = '1337';
 module.exports = {
-    port: port
+    PORT: port
 }
