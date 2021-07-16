@@ -8,7 +8,7 @@ const app = express();
 var corsOptions = {
   origin: "https://gmeservice-gestionale.herokuapp.com/"
 };
-require('./config/production.js')
+
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
@@ -33,6 +33,7 @@ app.use(express.static("app/public"));
 
 // simple route
 app.get("/", (req, res) => {
+
   console.log(__dirname);
   res.sendFile(path.join(__dirname + '/app/public/index.html'));
 });
