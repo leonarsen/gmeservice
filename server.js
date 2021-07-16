@@ -33,6 +33,7 @@ app.use(express.static("app/public"));
 
 // simple route
 app.get("/", (req, res) => {
+  console.log("ciao");
   console.log(__dirname);
   res.sendFile(path.join(__dirname + '/app/public/index.html'));
 });
