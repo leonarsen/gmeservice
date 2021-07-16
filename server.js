@@ -6,10 +6,10 @@ const path = require("path");
 const app = express();
 
 var corsOptions = {
-  origin: "https://gmeservice.it/gestionale/"
+  origin: "https://gmeservice-gestionale.herokuapp.com/"
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
