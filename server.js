@@ -1,14 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "https://gmeservice.it/gestionale/"
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -28,9 +29,12 @@ db.sequelize.sync();
 //   initial();
 // });
 
+app.use(express.static("app/public"));
+
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Leon application." });
+  console.log(__dirname);
+  res.sendFile(path.join(__dirname + '/app/public/index.html'));
 });
 
 // routes
@@ -49,12 +53,12 @@ function initial() {
     id: 1,
     name: "user"
   });
- 
+
   Role.create({
     id: 2,
     name: "moderator"
   });
- 
+
   Role.create({
     id: 3,
     name: "admin"
