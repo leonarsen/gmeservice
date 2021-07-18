@@ -1,48 +1,13 @@
-const parse = require('pg-connection-string').parse;
-const config = parse(process.env.DATABASE_URL);
-
 module.exports = {
-    HOST: "hattie.db.elephantsql.com",
-    USER: "qyaapmpe",
-    PASSWORD: "Xpj-CgOqKAF3ycUoQGafxuKEwFCZkev9",
-    DB: "qyaapmpe",
-    dialect: "postgres",
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    }
+  HOST: "ec2-54-220-53-223.eu-west-1.compute.amazonaws.com",
+  USER: "qudlzkumipwypg",
+  PASSWORD: "2e3862566edad9aa323279d14e9b11fe5d637d77e000182e01d98c1e2ffc6b4d",
+  DB: "d4i186br72m8ns",
+  dialect: "postgres",
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  }
 };
-
-const parse = require('pg-connection-string').parse;
-const config = parse(process.env.DATABASE_URL);
-
-module.exports = ({ env }) => ({
-    defaultConnection: 'default',
-    connections: {
-        default: {
-            connector: 'bookshelf',
-            settings: {
-                client: 'postgres',
-                host: config.host,
-                port: config.port,
-                database: config.database,
-                username: config.user,
-                password: config.password,
-                ssl: {
-                    rejectUnauthorized: false,
-                },
-                pool: {
-                    max: 5,
-                    min: 0,
-                    acquire: 30000,
-                    idle: 10000
-                }
-            },
-            options: {
-                ssl: true,
-            },
-        },
-    },
-});

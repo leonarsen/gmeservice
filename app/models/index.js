@@ -1,18 +1,15 @@
-const parse = require('pg-connection-string').parse;
-const config = parse(process.env.DATABASE_URL);
+const config = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
-  config.database,
-  config.user,
-  config.password,
+  config.DB,
+  config.USER,
+  config.PASSWORD,
   {
-    host: config.host,
+    host: config.HOST,
     dialect: config.dialect,
-    client: 'postgres',
     operatorsAliases: 1,
-    port: config.port,
-    ssl: true,
+    port: 5432,
     dialectOptions: {
       ssl: {
         require: true, // This will help you. But you will see nwe error
@@ -20,14 +17,11 @@ const sequelize = new Sequelize(
       }
     },
     pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    },
-    options: {
-      ssl: true,
-    },
+      max: config.pool.max,
+      min: config.pool.min,
+      acquire: config.pool.acquire,
+      idle: config.pool.idle
+    }
   }
 );
 
