@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path = require("path");
 
 const app = express();
 
@@ -28,12 +27,12 @@ db.sequelize.sync();
 //   console.log('Drop and Resync Database with { force: true }');
 //   initial();
 // });
-
-app.use(express.static("app/public"));
+const path = __dirname + '/app/public/';
+app.use(express.static(path));
 
 // simple route
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + '/app/public/index.html'));
+  res.sendFile(path + '/index.html');
 });
 
 // routes
