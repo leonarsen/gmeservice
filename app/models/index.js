@@ -11,12 +11,12 @@ const sequelize = new Sequelize(
     operatorsAliases: 1,
     port: 5432,
     ssl: true,
-    // dialectOptions: {
-    //   ssl: {
-    //     require: true, // This will help you. But you will see nwe error
-    //     rejectUnauthorized: false // This line will fix new error
-    //   }
-    // },
+    dialectOptions: {
+      ssl: {
+        require: true, // This will help you. But you will see nwe error
+        rejectUnauthorized: false // This line will fix new error
+      }
+    },
     pool: {
       max: config.pool.max,
       min: config.pool.min,
