@@ -1,15 +1,17 @@
-const config = require("../config/db.config.js");
+const parse = require('pg-connection-string').parse;
+const config = parse(process.env.DATABASE_URL);
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
-  config.DB,
-  config.USER,
-  config.PASSWORD,
+  config.database,
+  config.user,
+  config.password,
   {
-    host: config.HOST,
+    host: config.host,
     dialect: config.dialect,
+    client: 'postgres',
     operatorsAliases: 1,
-    port: 5432,
+    port: config.port,
     ssl: true,
     dialectOptions: {
       ssl: {
@@ -18,11 +20,14 @@ const sequelize = new Sequelize(
       }
     },
     pool: {
-      max: config.pool.max,
-      min: config.pool.min,
-      acquire: config.pool.acquire,
-      idle: config.pool.idle
-    }
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    },
+    options: {
+      ssl: true,
+    },
   }
 );
 
