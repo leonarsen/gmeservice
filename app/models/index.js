@@ -16,13 +16,13 @@ const sequelize = new Sequelize(
     //     require: true, // This will help you. But you will see nwe error
     //     rejectUnauthorized: false // This line will fix new error
     //   }
-  // },
-  pool: {
-  max: config.pool.max,
-  min: config.pool.min,
-  acquire: config.pool.acquire,
-  idle: config.pool.idle
-}
+    // },
+    pool: {
+      max: config.pool.max,
+      min: config.pool.min,
+      acquire: config.pool.acquire,
+      idle: config.pool.idle
+    }
   }
 );
 
