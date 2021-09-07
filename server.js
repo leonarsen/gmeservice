@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "https://gmeservice-gestionale.herokuapp.com/"
+  origin: ""
 };
 
 app.use(cors());
@@ -41,10 +41,15 @@ require('./app/routes/user.routes')(app);
 require("./app/routes/contact.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+
+// const open = require('open');
+
+// // opens the url in the default browser 
+// open('http://localhost:8080');
 
 function initial() {
   Role.create({

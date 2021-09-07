@@ -4,7 +4,8 @@
   "description": "Node.js Demo for JWT Authentication with PostgreSQL",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "nexe"
   },
   "keywords": [
     "node js",
@@ -24,10 +25,14 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "open": "^8.2.1",
     "pg": "^7.18.2",
     "pg-connection-string": "^2.5.0",
     "pg-hstore": "^2.3.4",
     "react-router-dom": "^5.2.0",
     "sequelize": "^5.22.4"
+  },
+  "devDependencies": {
+    "nexe": "^4.0.0-beta.18"
   }
 }

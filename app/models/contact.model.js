@@ -192,6 +192,9 @@ module.exports = (sequelize, Sequelize) => {
         iban: {
             type: Sequelize.STRING
         },
+        timeline: {
+            type: Sequelize.ARRAY(Sequelize.TEXT)
+        }
 
     });
 
