@@ -27,6 +27,9 @@ module.exports = (sequelize, Sequelize) => {
         telefono_secondario: {
             type: Sequelize.STRING
         },
+        numerazione_interna: {
+            type: Sequelize.STRING
+        },
         email_principale: {
             type: Sequelize.STRING
         },

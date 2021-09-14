@@ -24,6 +24,7 @@ exports.create = (req, res) => {
         nome_azienda: req.body.nome_azienda,
         cellulare: req.body.cellulare,
         origine_lead: req.body.origine_lead,
+        numerazione_interna: req.body.numerazione_interna,
         telefono_casa: req.body.telefono_casa,
         titolo: req.body.titolo,
         telefono_secondario: req.body.telefono_secondario,
